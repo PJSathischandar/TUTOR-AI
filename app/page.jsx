@@ -1,48 +1,36 @@
-import Feed from "@components/Feed";
+"use client";
 
-const Home = () => (
-  <section className='w-full flex-center flex-col'>
-    <h1 className='head_text text-center'>
-      Discover & Share
-      <br className='max-md:hidden' />
-      <span className='orange_gradient text-center'> AI-Powered Prompts</span>
-    </h1>
-    <p className='desc text-center'>
-      Promptopia is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
-    </p>
+import { useSession } from "next-auth/react";
+import HomeComponent from "@components/HomeComponent";
+import StudentComponent from "@components/StudentComponent";
+import TutorComponent from "@components/TutorComponent";
 
-    <Feed />
-  </section>
-);
-const StudentHome = () => (
-  <section className='w-full flex-center flex-col'>
-    <h1 className='head_text text-center'>
-      Discover & Share
-      <br className='max-md:hidden' />
-      <span className='orange_gradient text-center'> AI-Powered Prompts</span>
-    </h1>
-    <p className='desc text-center'>
-      Promptopia is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
-    </p>
+const Home = () => {
+  const { data: session, status } = useSession();
 
-    <Feed />
-  </section>
-);
-const TutorHome = () => (
-  <section className='w-full flex-center flex-col'>
-    <h1 className='head_text text-center'>
-      Discover & Share
-      <br className='max-md:hidden' />
-      <span className='orange_gradient text-center'> AI-Powered Prompts</span>
-    </h1>
-    <p className='desc text-center'>
-      Promptopia is an open-source AI prompting tool for modern world to
-      discover, create and share creative prompts
-    </p>
+  // Show loading state while session is being loaded
+  if (status === "loading") {
+    return (
+      <section className='w-full flex-center flex-col'>
+        <div className="loader">Loading...</div>
+      </section>
+    );
+  }
 
-    <Feed />
-  </section>
-);
+  // If user is not logged in, show default home component
+  if (!session?.user) {
+    return <HomeComponent />;
+  }
+
+  // If user is logged in, show component based on their role
+  switch (session.user.role) {
+    case 'student':
+      return <StudentComponent />;
+    case 'tutor':
+      return <TutorComponent />;
+    default:
+      return <HomeComponent />;
+  }
+};
+
 export default Home;

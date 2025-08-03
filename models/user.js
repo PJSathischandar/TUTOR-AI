@@ -13,6 +13,11 @@ const UserSchema = new Schema({
   },
   image: {
     type: String,
+  },
+  role: {
+    type: String,
+    enum: ['student', 'tutor'],
+    default: 'student',
   }
 });
 
