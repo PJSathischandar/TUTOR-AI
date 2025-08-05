@@ -22,13 +22,13 @@ const Nav = () => {
     <nav className='flex-between w-full mb-16 pt-3'>
       <Link href='/' className='flex gap-2 flex-center'>
         <Image
-          src='/assets/images/logo.svg'
+          src='/assets/images/tutorai_logo_only_60x60.svg'
           alt='logo'
           width={30}
           height={30}
           className='object-contain'
         />
-        <p className='logo_text'>Promptopia</p>
+        <p className='logo_text'>Tutor AI</p>
       </Link>
 
       {/* Desktop Navigation */}
@@ -46,8 +46,8 @@ const Nav = () => {
             <Link href='/profile'>
               <Image
                 src={session?.user.image}
-                width={37}
-                height={37}
+                width={60}
+                height={60}
                 className='rounded-full'
                 alt='profile'
               />
