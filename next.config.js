@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  output: "standalone",
   experimental: {
     appDir: true,
-    output: "standalone",
     serverComponentsExternalPackages: ["mongoose"],
   },
   images: {
