@@ -17,7 +17,6 @@ const TutorComponent = () => {
         Design educational content, create teaching prompts, and share knowledge
         with students through AI-powered tools and resources
       </p>
-
     </section>
   );
 };
