@@ -16,7 +16,6 @@ const StudentComponent = () => {
         Access educational prompts, practice exercises, and learning materials
         tailored for students to enhance your knowledge and skills
       </p>
-
     </section>
   );
 };
