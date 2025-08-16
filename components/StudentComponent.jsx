@@ -10,10 +10,10 @@ const StudentComponent = () => {
       <h1 className='head_text text-center'>
         Welcome Student {session?.user?.username}!
         <br className='max-md:hidden' />
-        <span className='orange_gradient text-center'> Learn with AI-Powered Prompts</span>
+        <span className='orange_gradient text-center'> Learn with AI-Powered Tutoring</span>
       </h1>
       <p className='desc text-center'>
-        Access educational prompts, practice exercises, and learning materials
+        Access educational content, practice exercises, and learning materials
         tailored for students to enhance your knowledge and skills
       </p>
     </section>
